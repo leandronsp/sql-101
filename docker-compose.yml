@@ -1,0 +1,18 @@
+version: '3.9'
+
+services:
+  covid19:
+    image: postgres
+    volumes:
+      - ./covid19/dataset.csv:/var/covid-dataset.csv
+      - covid19_data:/var/lib/postgresql/data/pgdata
+    environment:
+      POSTGRES_PASSWORD: covid19
+      POSTGRES_USER: covid19
+      POSTGRES_DB: covid19db
+      PGDATA: /var/lib/postgresql/data/pgdata
+    ports:
+      - "5432:5432"
+
+volumes:
+  covid19_data:
