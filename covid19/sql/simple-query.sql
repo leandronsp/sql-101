@@ -1,9 +1,9 @@
 SELECT
-	date,
-	location,
-	iso_code,
-	new_cases_smoothed,
-	new_cases_smoothed_per_million
+  date,
+  location,
+  iso_code,
+  new_cases_smoothed,
+  new_cases_smoothed_per_million
 FROM
   covid19
 WHERE
