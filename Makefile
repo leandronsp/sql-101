@@ -1,2 +1,6 @@
-covid19.pg:
-	@bash covid19/postgres
+pg:
+	@docker-compose run \
+		--rm \
+		--name postgres \
+		--service-ports \
+		postgres
