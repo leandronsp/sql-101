@@ -1,5 +1,11 @@
 # sql-101
 
+## Starting the PostgreSQL server
+
+```bash
+$ make pg
+```
+
 ## Basic
 
 - SELECT
