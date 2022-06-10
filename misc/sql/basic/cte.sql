@@ -9,28 +9,28 @@ CREATE TABLE movies_ratings (user_id INTEGER, movie_id INTEGER, rating INTEGER);
 INSERT INTO users (id, name) VALUES (1, 'John'), (2, 'Ana'), (3, 'Jorge');
 INSERT INTO movies (id, name) VALUES (1, 'Star Wars I'), (2, 'Star Wars II');
 
-SELECT 
+SELECT
 	users.id as user_id,
 	movies.id as movie_id,
 	(random() * 10)::integer as rating
-FROM 
-	users as users, 
+FROM
+	users as users,
 	movies as movies;
 
 WITH users_movies AS (
-	SELECT 
+	SELECT
 		users.id as user_id,
 		movies.id as movie_id,
 		(random() * 10)::integer as rating
-	FROM 
-		users as users, 
+	FROM
+		users as users,
 		movies as movies
 )
 INSERT INTO movies_ratings SELECT * FROM users_movies;
 
-WITH 
+WITH
 users_votes AS (
-	SELECT 
+	SELECT
 		users.name,
 		COUNT(movies_ratings.rating) AS votes
 	FROM users

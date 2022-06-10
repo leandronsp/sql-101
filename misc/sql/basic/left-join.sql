@@ -9,15 +9,15 @@ CREATE TABLE movies_ratings (user_id INTEGER, movie_id INTEGER, rating INTEGER);
 INSERT INTO users (id, name) VALUES (1, 'John'), (2, 'Ana'), (3, 'Jorge');
 INSERT INTO movies (id, name) VALUES (1, 'Star Wars I'), (2, 'Star Wars II');
 
-INSERT INTO 
-	movies_ratings (user_id, movie_id, rating) 
-VALUES 
+INSERT INTO
+	movies_ratings (user_id, movie_id, rating)
+VALUES
 	(1, 1, 7),
 	(1, 2, 8),
 	(2, 1, 6),
 	(2, 2, 10);
 
-SELECT 
+SELECT
 	users.name,
 	movies.name,
 	movies_ratings.rating
@@ -26,7 +26,7 @@ JOIN users ON users.id = movies_ratings.user_id
 JOIN movies ON movies.id = movies_ratings.movie_id
 ORDER BY movies_ratings.rating DESC;
 
-SELECT 
+SELECT
 	users.name,
 	COUNT(movies_ratings.rating) AS votes
 FROM users

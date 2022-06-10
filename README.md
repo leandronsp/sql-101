@@ -13,17 +13,17 @@ $ make pg
 - Views
 - JOIN
 - LEFT JOIN
-- CTE (WITH)
 - Window Functions (group partition)
+- CTE (WITH)
 - UNION
 
 ## Advanced
 
 - Indexes
-- Searching Text
-- JSONB
 - Constraints
 - Transactions
 - Locks
+- Searching Text
+- JSONB
 - EXPLAIN (Query Plan)
 - Administration and Tuning
