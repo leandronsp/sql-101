@@ -14,24 +14,22 @@ CREATE TABLE countries_info (isocode varchar(20), isocode3 varchar(20), iso_nume
 continent varchar(10), tld varchar(10), currency_code varchar(20), currency_name varchar(50), phone varchar(20), postal_code_format varchar(200), postal_code_regex varchar(300), languages
 varchar(100), geoname_id integer, neighbours varchar(80), equivalent_fips_code varchar(50));
 
--- SET client_encoding = 'ISO-8859-1';
-
-COPY admin_codes 
-FROM PROGRAM 'curl "https://download.geonames.org/export/dump/admin1CodesASCII.txt"' 
+COPY admin_codes
+FROM PROGRAM 'curl "https://download.geonames.org/export/dump/admin1CodesASCII.txt"'
 CSV DELIMITER E'\t';
 
-COPY admin_codes 
-FROM PROGRAM 'curl "https://download.geonames.org/export/dump/admin2Codes.txt" | tr "\”" " " | tr "\’" " " | tr "\"" " "' 
+COPY admin_codes
+FROM PROGRAM 'curl "https://download.geonames.org/export/dump/admin2Codes.txt" | tr "\”" " " | tr "\’" " " | tr "\"" " "'
 CSV DELIMITER E'\t' ENCODING 'ISO-8859-1';
 
-COPY feature_codes 
-FROM PROGRAM 'curl "https://download.geonames.org/export/dump/featureCodes_en.txt"' 
+COPY feature_codes
+FROM PROGRAM 'curl "https://download.geonames.org/export/dump/featureCodes_en.txt"'
 CSV DELIMITER E'\t';
 
-COPY countries_info 
-FROM PROGRAM 'curl "https://download.geonames.org/export/dump/countryInfo.txt" | grep -v "^#.*"' 
+COPY countries_info
+FROM PROGRAM 'curl "https://download.geonames.org/export/dump/countryInfo.txt" | grep -v "^#.*"'
 CSV DELIMITER E'\t';
 
-COPY geonames 
+COPY geonames
 FROM PROGRAM 'curl "https://download.geonames.org/export/dump/allCountries.zip" | gunzip | tr "\”" " " | tr "\’" " " | tr "\"" " "'
 CSV DELIMITER E'\t' ENCODING 'ISO-8859-1';
