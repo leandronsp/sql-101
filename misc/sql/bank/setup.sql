@@ -1,5 +1,5 @@
-SET session total.users = 200;
-SET session total.banks = 20;
+SET local total.users = 200;
+SET local total.banks = 20;
 
 DROP TABLE IF EXISTS users;
 CREATE TABLE users (
